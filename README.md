@@ -26,7 +26,7 @@ Renseignez vos identifiants et accédez au dashboard.
 
 Nous allons ensuite créer 2 applications console .NET afin de tester le serveur RabbitMQ.
 
-![Alt text](./screenshots/projects.png)
+![Alt text](./screenshots/dependencies.png)
 
 Ici, j'ai créé 1 solution avec 2 projets console à l'intérieur, un publisher et un subscriber. J'ai également ajouté le package `RabbitMQ.Client` dans chacun des projets.
 
