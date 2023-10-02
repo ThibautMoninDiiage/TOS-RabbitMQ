@@ -41,7 +41,7 @@ On peut ensuite ajouter ces lignes de code pour le `Program.cs` du projet Publis
 using System.Text;
 using RabbitMQ.Client;
 
-var factory = new ConnectionFactory { HostName = "localhost" };
+var factory = new ConnectionFactory { HostName = "localhost", UserName = "user", Password = "password"};
 using var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
 
@@ -57,7 +57,7 @@ Console.WriteLine($"Sent {message}");
 Console.ReadLine();
 ```
 
-Et ce code pour le `Program.cs` du projet subscriber.
+Et ces lignes pour le `Program.cs` du projet subscriber.
 
 ```bash
 using System.Text;
@@ -86,3 +86,13 @@ channel.BasicConsume(queue: "tos",
 Console.WriteLine(" Press a key to exit.");
 Console.ReadLine();
 ```
+
+Nous avons donc créé un publisher (qui va envoyer les messages), et un subscriber (qui va recevoir les messages).
+
+Lorsque vous allez lancer le projet console Publisher, vous allez envoyer un message, ici "TOS RabbitMQ" au serveur que vous venez de mettre en place dans un conteneur.
+
+![Alt text](./screenshots/overview.png)
+
+Nous voyons dans la console qu'un message a bien été envoyé sur le serveur RabbitMQ.
+
+![Alt text](./screenshots/sent.png)
