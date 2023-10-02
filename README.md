@@ -10,7 +10,7 @@ Commande pour récupérer l'image RabbitMQ depuis DockerHub.
 docker pull rabbitmq:management
 ```
 
-> Le tag :management permet d'obtenir l'image docker qui permet de lancer le conteneur et d'avoir une interface graphique.
+> Le tag `rabbitmq:management` permet d'obtenir l'image docker qui permet de lancer le conteneur et d'avoir une interface graphique.
 
 Commande pour créer le conteneur docker.
 
