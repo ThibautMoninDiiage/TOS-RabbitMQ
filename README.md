@@ -17,3 +17,7 @@ Créer le conteneur docker.
 ```bash
 docker run -d -p 5672:5672 -p 15672:15672 --hostname rabbit-mq-tos --name rabbit-mq-container -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=password rabbitmq:management
 ```
+
+Une fois le conteneur créé, nous avons accès à l'interface RabbitMQ à l'adresse : `http://localhost:15672/`
+
+![Alt text](./screenshots/rabbitmq.png)
