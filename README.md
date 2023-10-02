@@ -18,7 +18,17 @@ Commande pour créer le conteneur docker.
 docker run -d -p 5672:5672 -p 15672:15672 --hostname rabbit-mq-tos --name rabbit-mq-container -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=password rabbitmq:management
 ```
 
-Une fois le conteneur créé, nous avons accès à l'interface RabbitMQ à l'adresse : `http://localhost:15672/`
+### Explications
+
+`-d` : On lance le conteneur en background.
+`-p 5672:5672` : Mapper le port 5672 du conteneur au port 5672 de l'hôte (port par défaut pour RabbitMQ).
+`-p 15672:15672` : Mapper le port 15672 du conteneur au port 15672 de l'hôte (port par défaut pour la console d'administration Web).
+`--hostname` : Définir le nom d'hôte.
+`--name` : Définir le nom du conteneur.
+`-e` : Définir les variables d'environnement. (User / Password)
+`rabbitmq:management` : L'image sur laquelle se base la création du conteneur.
+
+Une fois le conteneur créé, nous avons accès à l'interface web de RabbitMQ à l'adresse : `http://localhost:15672/`
 
 ![Alt text](./screenshots/rabbitmq.png)
 
@@ -28,7 +38,7 @@ Nous allons ensuite créer 2 applications console .NET afin de tester le serveur
 
 ![Alt text](./screenshots/dependencies.png)
 
-Ici, j'ai créé 1 solution avec 2 projets console à l'intérieur, un publisher et un subscriber. J'ai également ajouté le package `RabbitMQ.Client` dans chacun des projets.
+Pour ce TOS, j'ai créé 1 solution avec 2 projets console à l'intérieur, un Publisher et un Subscriber. J'ai également ajouté le package `RabbitMQ.Client` dans chacun des projets.
 
 Vous pouvez ajouter le package grâce à la commande suivante : 
 ```bash
@@ -56,6 +66,12 @@ channel.BasicPublish(exchange: string.Empty, routingKey: "tos", basicProperties:
 Console.WriteLine($"Sent {message}");
 Console.ReadLine();
 ```
+
+### Explications
+
+On créé une connexion à notre serveur RabbitMQ avec les identifiants que l'on a utilisé pour créer le conteneur.
+On déclare un canal "tos" sur lequel on va envoyer les messages.
+On créé le message que l'on veut envoyer et on le publie.
 
 Et ces lignes pour le `Program.cs` du projet subscriber.
 
@@ -87,6 +103,12 @@ channel.BasicConsume(queue: "tos",
 Console.WriteLine(" Press a key to exit.");
 Console.ReadLine();
 ```
+
+### Explications
+
+On créé une connexion à notre serveur RabbitMQ avec les identifiants que l'on a utilisé pour créer le conteneur.
+On déclare un canal "tos" sur lequel on va écouter les messages.
+On écoute en continue sur le canal pour recevoir les messages qui y seront envoyés.
 
 Nous avons donc créé un publisher (qui va envoyer les messages), et un subscriber (qui va recevoir les messages).
 
