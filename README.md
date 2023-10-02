@@ -64,7 +64,8 @@ using System.Text;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-var factory = new ConnectionFactory { HostName = "localhost" };
+var factory = new ConnectionFactory { HostName = "localhost", UserName = "user", Password = "password"};
+
 using var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
 
@@ -96,3 +97,9 @@ Lorsque vous allez lancer le projet console Publisher, vous allez envoyer un mes
 Nous voyons dans la console qu'un message a bien été envoyé sur le serveur RabbitMQ.
 
 ![Alt text](./screenshots/sent.png)
+
+Désormais, le message a été envoyé sur le serveur, on va alors lancer le projet Subscriber pour qu'il puisse écouter sur le même canal et recevoir le message.
+
+![Alt text](./screenshots/received.png)
+
+On peut voir ici que le Subscriber a bien reçu le message qui a été envoyé par le Publisher sur le serveur RabbitMQ.
