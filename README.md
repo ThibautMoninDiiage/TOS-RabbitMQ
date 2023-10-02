@@ -30,4 +30,7 @@ Nous allons ensuite créer 2 applications console .NET afin de tester le serveur
 
 Ici, j'ai créé 1 solution avec 2 projets console à l'intérieur, un publisher et un subscriber. J'ai également ajouté le package `RabbitMQ.Client` dans chacun des projets.
 
-Vous pouvez ajouter le package grâce à la commande suivante : `dotnet add package RabbitMQ.Client --version 6.6.0-beta.0`
+Vous pouvez ajouter le package grâce à la commande suivante : 
+```bash
+dotnet add package RabbitMQ.Client --version 6.6.0-beta.0
+```
