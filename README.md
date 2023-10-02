@@ -40,6 +40,8 @@ Une fois le conteneur créé, nous avons accès à l'interface web de RabbitMQ �
 
 Renseignez vos identifiants et accédez au dashboard.
 
+![Alt text](./screenshots/dashboard.png)
+
 Nous allons ensuite créer 2 applications console .NET afin de tester le serveur RabbitMQ.
 
 ![Alt text](./screenshots/dependencies.png)
