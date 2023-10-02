@@ -21,11 +21,17 @@ docker run -d -p 5672:5672 -p 15672:15672 --hostname rabbit-mq-tos --name rabbit
 ### Explications
 
 `-d` : On lance le conteneur en background.
+
 `-p 5672:5672` : Mapper le port 5672 du conteneur au port 5672 de l'hôte (port par défaut pour RabbitMQ).
+
 `-p 15672:15672` : Mapper le port 15672 du conteneur au port 15672 de l'hôte (port par défaut pour la console d'administration Web).
+
 `--hostname` : Définir le nom d'hôte.
+
 `--name` : Définir le nom du conteneur.
+
 `-e` : Définir les variables d'environnement. (User / Password)
+
 `rabbitmq:management` : L'image sur laquelle se base la création du conteneur.
 
 Une fois le conteneur créé, nous avons accès à l'interface web de RabbitMQ à l'adresse : `http://localhost:15672/`
