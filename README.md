@@ -133,3 +133,15 @@ Désormais, le message a été envoyé sur le serveur, on va alors lancer le pro
 ![Alt text](./screenshots/received.png)
 
 On peut voir ici que le Subscriber a bien reçu le message qui a été envoyé par le Publisher sur le serveur RabbitMQ.
+
+### Résumé
+
+Nous pouvons imaginer que le Publisher est un Microservice (A) et le Subscriber un autre Microservice (B).
+
+En résumé, RabbitMQ agit comme un intermédiaire fiable entre les microservices, garantissant que les messages sont correctement transmis et reçus, même en présence de pannes ou de problèmes de réseau.
+
+## Analogie
+
+Nous pouvons imaginer que le Microservice A est l'expéditeur d'une lettre, RabbitMQ est le bureau de poste, le canal est la boite aux lettre et le Microservice B est le destinataire de la lettre.
+
+L'expéditeur (Microservice A) envoie sa lettre (le message) à la poste (RabbitMQ), le bureau de poste dépose la lettre (le message) dans la boite aux lettres (canal) du destinataire (Microservice B).
